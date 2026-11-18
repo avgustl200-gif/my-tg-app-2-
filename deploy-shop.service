@@ -1,0 +1,13 @@
+# Пример автозапуска (Linux, systemd): /etc/systemd/system/shop.service
+[Unit]
+Description=Telegram shop
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/shop
+ExecStart=/usr/bin/python3 /opt/shop/run.py
+Restart=always
+User=shop
+
+[Install]
+WantedBy=multi-user.target
